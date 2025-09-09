@@ -14,7 +14,8 @@ public class UserController {
         model.addAttribute("title", "Hola Mundo desde Spring Boot como monolito! :)");
         model.addAttribute("name", "Ever");
         model.addAttribute("lastName", "Vasquez");
-        com.ever.curso.springboot.webapp.springbootweb.models.User user = new User("Ever", "Vasquez");
+        User user = new User("Ever", "Vasquez");
+        //user.setEmail("ever@ever.com");
         model.addAttribute("user", user);
         return "details";
     }

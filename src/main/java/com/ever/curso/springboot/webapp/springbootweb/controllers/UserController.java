@@ -3,8 +3,12 @@ package com.ever.curso.springboot.webapp.springbootweb.controllers;
 import com.ever.curso.springboot.webapp.springbootweb.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -26,5 +30,24 @@ public class UserController {
         model.put("name", "Ever");
         model.put("lastName", "Vasquez");
         return "details";
+    }
+
+    @GetMapping("/list")
+    public String list(ModelMap model) {
+        //var users = usersModel();
+        //model.addAttribute("users", users);
+        model.addAttribute("title", "Listado de usuarios");
+        return "list";
+    }
+
+    @ModelAttribute("users")
+    public List<User> usersModel() {
+        return Arrays.asList(
+                new User("Maria", "Francisca", "mari@gamil.com"),
+                new User("Pedro", "Fernandez"),
+                new User("Juan", "Perez", "juanjo123@gamil.com"),
+                new User("Andres", "Guzman"),
+                new User("John", "Doe", "john@gamil.com")
+        );
     }
 }

@@ -12,9 +12,9 @@ import java.util.Map;
 @RequestMapping("/api/params")
 public class RequestParamsController {
     @GetMapping("/foo")
-    public ParamDto foo(@RequestParam String message) {
+    public ParamDto foo(@RequestParam(required = false) String message) {
         ParamDto paramDto = new ParamDto();
-        paramDto.setMessage(message);
+        paramDto.setMessage(message!=null?message:"Hola Mundo desde Spring Boot");
         return paramDto;
     }
 }

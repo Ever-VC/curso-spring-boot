@@ -12,7 +12,7 @@ import java.util.Map;
 @RequestMapping("/api/params")
 public class RequestParamsController {
     @GetMapping("/foo")
-    public ParamDto foo(@RequestParam(required = false, defaultValue = "Hola Mundo como valor por defecto") String message) {
+    public ParamDto foo(@RequestParam(name = "mensaje", required = false, defaultValue = "Hola Mundo como valor por defecto") String message) {
         ParamDto paramDto = new ParamDto();
         paramDto.setMessage(message);
         return paramDto;
